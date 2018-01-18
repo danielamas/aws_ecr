@@ -84,7 +84,9 @@ public class App {
 
 		long totalSizeImagesOfAllRepos = 0;
 		for(RepoData r : repoNameImageDetailMap.keySet()) {
-			totalSizeImagesOfAllRepos += r.getTotalSizeImages();
+			if (r.getTotalSizeImages() != null) {
+				totalSizeImagesOfAllRepos += r.getTotalSizeImages();
+			}
 		}
 		System.out.println("O ECR possui atualmente " + FileUtils.byteCountToDisplaySize(totalSizeImagesOfAllRepos) + " de espaço armazenado.");
 	}
